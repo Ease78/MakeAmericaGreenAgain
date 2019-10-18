@@ -46,8 +46,144 @@ var greenIcon = L.icon({
 	shadowAnchor: [4, 62],  // the same for the shadow
 	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
-    L.marker([32.13, -110.97], {icon: greenIcon}).addTo(myMap);
 
+var redIcon = L.icon({
+	iconUrl: 'leaf-red.png',
+	shadowUrl: 'leaf-shadow.png',
+
+	iconSize:     [38, 95], // size of the icon
+	shadowSize:   [50, 64], // size of the shadow
+	iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+	shadowAnchor: [4, 62],  // the same for the shadow
+	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var orangeIcon = L.icon({
+	iconUrl: 'leaf-orange.png',
+	shadowUrl: 'leaf-shadow.png',
+
+	iconSize:     [38, 95], // size of the icon
+	shadowSize:   [50, 64], // size of the shadow
+	iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+	shadowAnchor: [4, 62],  // the same for the shadow
+	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+    L.marker([32.13, -110.97], {icon: greenIcon}).addTo(mymap);
+    L.marker([32.14, -110.97], {icon: greenIcon}).addTo(mymap).bindPopup("I am a green leaf.");
+    L.marker([32.13, -110.96], {icon: redIcon}).addTo(mymap).bindPopup("I am a red leaf.");
+    L.marker([32.12, -110.97], {icon: orangeIcon}).addTo(mymap).bindPopup("I am an orange leaf.");
+
+
+    //var mapboxAccessToken = {your access token here};
+    var map = L.map('mymap').setView([37.8, -96], 14);
+
+
+    var geojsonFeature = {
+        "type": "Feature",
+        "properties": {
+            "name": "Coors Field",
+            "amenity": "Baseball Stadium",
+            "popupContent": "This is where the Rockies play!"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [32.12, -110.98]
+        }
+    };
+
+    var myLines = [{
+        "type": "LineString",
+        "coordinates": [[32.11, -110.95], [-105, 45], [-110, 55]]
+    }, {
+        "type": "LineString",
+        "coordinates": [[-105, 40], [-110, 45], [32.12, -110.95]]
+    }];
+
+    var myStyle = {
+        "color": "#ff7800",
+        "weight": 5,
+        "opacity": 0.65
+    };
+
+    L.geoJSON(myLines, {
+        style: myStyle
+    }).addTo(mymap);
+
+    var myLayer = L.geoJSON().addTo(mymap);
+    myLayer.addData(geojsonFeature);
+
+    myLayer.addData(myLines);
+    L.geoJSON(myLines).addTo(mymap);
+
+    L.geoJSON(geojsonFeature).addTo(mymap);
+    var states = [{
+	"type": "Feature",
+	"properties": {"party": "Republican"},
+	"geometry": {
+		"type": "Polygon",
+		"coordinates": [[
+			[-104.05, 48.99],
+			[-97.22,  48.98],
+			[-96.58,  45.94],
+			[-104.03, 45.94],
+			[-104.05, 48.99]
+		]]
+	}
+}, {
+	"type": "Feature",
+	"properties": {"party": "Democrat"},
+	"geometry": {
+		"type": "Polygon",
+		"coordinates": [[
+			[-109.05, 41.00],
+			[-102.06, 40.99],
+			[-102.03, 36.99],
+			[-109.04, 36.99],
+			[-109.05, 41.00]
+		]]
+	}
+}];
+
+    L.geoJSON(states, {
+        style: function(feature) {
+            switch (feature.properties.party) {
+                case 'Republican': return {color: "#ff0000"};
+                case 'Democrat':   return {color: "#0000ff"};
+            }
+        }
+    }).addTo(mymap);
+
+    var someFeatures = [{
+	"type": "Feature",
+	"properties": {
+		"name": "Coors Field",
+		"show_on_map": true
+	},
+	"geometry": {
+		"type": "Point",
+		"coordinates": [-104.99404, 39.75621]
+	}
+}, {
+	"type": "Feature",
+	"properties": {
+		"name": "Busch Field",
+		"show_on_map": true
+	},
+	"geometry": {
+		"type": "Point",
+		"coordinates": [-104.98404, 39.74621]
+	}
+}];
+
+L.geoJSON(someFeatures, {
+	filter: function(feature, layer) {
+		return feature.properties.show_on_map;
+	}
+}).addTo(mymap);
+
+
+//    L.geoJson(statesData).addTo(mymap);
 
     </script>
 
