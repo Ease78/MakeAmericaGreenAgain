@@ -1,5 +1,6 @@
 # MakeAmericaGreenAgain
-![Challenge poster](Green Challenge Poster.JPG)
+![Challenge poster](GreenChallengePoster.JPG)
+
 Leaflet map implemented to show trees grown in the states (eventually the world)
 What I want is for this to be a website where you can go in as a guest, plant a tree ( put a Leaflet marker), you can choose the marker's icon and you can name the tree or write a comment. No fuss or registration. I'll trust everyone with honor code!
 
