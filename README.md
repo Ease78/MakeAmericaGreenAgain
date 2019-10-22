@@ -1,4 +1,5 @@
 # MakeAmericaGreenAgain
+![Challenge poster](Green Challenge Poster.JPG)
 Leaflet map implemented to show trees grown in the states (eventually the world)
 What I want is for this to be a website where you can go in as a guest, plant a tree ( put a Leaflet marker), you can choose the marker's icon and you can name the tree or write a comment. No fuss or registration. I'll trust everyone with honor code!
 
@@ -9,6 +10,7 @@ This is an on-going personal project that I don't expect to make any profit off 
 I would like to build a website with a red heat map of the world. As guests plant more trees, people of the world need to collectively work together to plant trees. As we plant more trees, the map will slowly turn from red to green
 
 Picture of my demo
+![Screenshot](DemoScreenshot.png)
 
 In order to run the website locally, 
 1)Clone the project
