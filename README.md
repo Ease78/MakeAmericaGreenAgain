@@ -14,17 +14,17 @@ Picture of my demo
 ![Screenshot](DemoScreenshot.png)
 
 In order to run the website locally, 
-1)Clone the project
-2)Run the command "python -m SimpleHTTPServer" in terminal
-3) Visit ython localhost (http://0.0.0.0:8000/quadtreemap.html).
+1. Clone the project
+2. Run the command 'python -m SimpleHTTPServer' in terminal
+3. Visit ython localhost (http://0.0.0.0:8000/quadtreemap.html).
 
 Basically, I implemented a Leaflet map tutorial, then I added WRLD.js library to make it look pretty, I hardcoded a tree and green polygon. I also built a basic website UI with bootstrap but that's something easy.
 
 Todo:
-1)Make Database for all GeoJson object
-2)Beautify the interface.
-3)(High priority) Make markers placeable with clicks instead of hardcoded
-4)Make the green polygon automatically placeable next to any tree instead of hardcoded
+1. Make Database for all GeoJson object
+2. Beautify the interface.
+3. (High priority) Make markers placeable with clicks instead of hardcoded
+4. Make the green polygon automatically placeable next to any tree instead of hardcoded
 
 What I want is for this to be a website where you can go in as a guest, plant a tree ( put a Leaflet marker), you can choose the marker's icon and you can name the tree or write a comment. No fuss or registration. I'll trust everyone with honor code!
 
